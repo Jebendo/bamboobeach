@@ -1,0 +1,2681 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+  <meta charset="UTF-8">
+
+  <meta
+    name="viewport"
+    content="width=device-width, initial-scale=1.0"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.googleapis.com"
+  >
+
+  <link
+    rel="preconnect"
+    href="https://fonts.gstatic.com"
+    crossorigin
+  >
+
+  <link
+    href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
+    rel="stylesheet"
+  >
+
+  <link
+    rel="stylesheet"
+    href="styles.css"
+  >
+
+  <title>
+    Bamboo Beach
+  </title>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================
+     VIDEO INTRO
+====================================== -->
+
+<div id="video-intro">
+
+  <video
+    autoplay
+    muted
+    loop
+    playsinline
+    id="intro-video"
+  >
+
+    <source
+      src="/videos/waves.mp4"
+      type="video/mp4"
+    >
+
+  </video>
+
+
+  <div class="welcome-text">
+
+
+    <div class="text-mask top-mask">
+
+      <div class="welcome-top">
+        Welcome to
+      </div>
+
+    </div>
+
+
+    <div class="text-mask bottom-mask">
+
+      <div class="welcome-bottom">
+        Bamboo Beach
+      </div>
+
+    </div>
+
+
+
+    <div class="language-wave">
+
+
+      <div class="language english">
+
+        <span class="choice-left">
+          Guest
+        </span>
+
+        <span class="choice-right">
+          Host
+        </span>
+
+      </div>
+
+
+      <div class="language georgian">
+
+        <span class="choice-left">
+          სტუმარი
+        </span>
+
+        <span class="choice-right">
+          მასპინძელი
+        </span>
+
+      </div>
+
+
+      <span class="fixed-divider">
+        |
+      </span>
+
+
+      <button
+        type="button"
+        class="role-hitbox role-hitbox-left"
+        data-role="guest"
+        aria-label="Guest">
+      </button>
+
+
+      <button
+        type="button"
+        class="role-hitbox role-hitbox-right"
+        data-role="owner"
+        aria-label="Owner">
+      </button>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================
+     HOME BUTTON
+====================================== -->
+
+<button
+  id="home-button"
+  type="button"
+  aria-label="Return to welcome screen"
+  title="Home">
+    <img
+    src="images/icons/listing/go-back-button-svgrepo-com.svg"
+    alt="">
+</button>
+
+
+
+<!-- =====================================
+     ENTERTAINMENT DETAIL OVERLAY
+====================================== -->
+
+<div
+  id="ent-detail-overlay"
+  aria-hidden="true"
+>
+
+  <button
+    type="button"
+    id="ent-detail-close"
+    aria-label="Close">
+    ×
+  </button>
+
+
+  <div class="ent-detail-inner">
+
+
+    <div class="ent-detail-copy">
+
+      <span id="ent-detail-eyebrow">
+        Poolside
+      </span>
+
+
+      <h2 id="ent-detail-title">
+        Pool & Sun
+      </h2>
+
+
+      <p id="ent-detail-text">
+        Slow mornings by the water and warm afternoons under the Adjara sun.
+      </p>
+
+
+      <button
+        type="button"
+        id="ent-detail-back">
+        ← Entertainment
+      </button>
+
+    </div>
+
+
+
+    <div class="ent-detail-gallery">
+
+
+      <div
+        class="ent-detail-photo ent-detail-main"
+        id="ent-detail-photo-1">
+      </div>
+
+
+      <div
+        class="ent-detail-photo ent-detail-small"
+        id="ent-detail-photo-2">
+      </div>
+
+
+      <div
+        class="ent-detail-photo ent-detail-wide"
+        id="ent-detail-photo-3">
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+
+<!-- =====================================
+     APARTMENT DETAIL OVERLAY
+====================================== -->
+
+<div
+  id="apt-detail-overlay"
+  aria-hidden="true"
+>
+
+  <button
+    type="button"
+    id="apt-detail-close"
+    aria-label="Close apartment">
+    ×
+  </button>
+
+
+  <div class="apt-detail-shell">
+
+
+    <!-- =====================================
+         PHOTO GALLERY
+    ====================================== -->
+
+    <div class="apt-detail-gallery">
+
+
+      <div
+        id="apt-detail-photo"
+        class="apt-detail-photo">
+      </div>
+
+
+      <button
+        type="button"
+        id="apt-photo-prev"
+        class="apt-photo-arrow apt-photo-arrow-left"
+        aria-label="Previous image">
+        ←
+      </button>
+
+
+      <button
+        type="button"
+        id="apt-photo-next"
+        class="apt-photo-arrow apt-photo-arrow-right"
+        aria-label="Next image">
+        →
+      </button>
+
+
+      <span
+        id="apt-photo-counter"
+        class="apt-photo-counter">
+        1 / 1
+      </span>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         INFORMATION
+    ====================================== -->
+
+    <div class="apt-detail-info">
+
+
+      <button
+        type="button"
+        id="apt-detail-back">
+        ← Apartments
+      </button>
+
+
+
+       <h2 id="apt-detail-title">
+        Sea View Residence
+      </h2>
+
+
+      <span
+        id="apt-detail-verified"
+        class="apt-detail-verified">
+        ✓ Verified owner
+      </span>
+
+
+      <div
+        id="apt-detail-meta"
+        class="apt-detail-meta">
+      </div>
+
+
+      <p
+        id="apt-detail-description"
+        class="apt-detail-description">
+      </p>
+
+      <div
+        id="apt-detail-amenities"
+        class="apt-detail-amenities">
+      </div>
+
+      <div class="apt-detail-price">
+
+        <span
+          id="apt-detail-price-label">
+          From
+        </span>
+
+
+        <strong
+          id="apt-detail-price">
+          $95
+        </strong>
+
+
+        <span
+          id="apt-detail-price-unit">
+          / night
+        </span>
+
+      </div>
+
+      <button
+  type="button"
+  id="apt-inquiry-open"
+  class="apt-inquiry-open">
+
+  <span
+    class="translatable"
+    data-en="Request availability"
+    data-ka="ხელმისაწვდომობის მოთხოვნა">
+    Request availability
+  </span>
+
+</button>
+
+
+      <div class="apt-detail-reference">
+
+
+        <span
+          id="apt-detail-reference-label">
+          Listing reference
+        </span>
+
+
+        <strong
+          id="apt-detail-reference">
+          BB-SAMPLE-01
+        </strong>
+
+
+      </div>
+
+
+    </div>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================
+     APARTMENT AVAILABILITY REQUEST
+====================================== -->
+
+<div
+  id="apt-inquiry-overlay"
+  aria-hidden="true"
+>
+
+  <button
+    type="button"
+    id="apt-inquiry-close"
+    aria-label="Close availability request">
+    ×
+  </button>
+
+
+  <div class="apt-inquiry-shell">
+
+    <div class="apt-inquiry-heading">
+
+      <span
+        class="apt-inquiry-eyebrow"
+        id="apt-inquiry-reference">
+        BB-SAMPLE-01
+      </span>
+
+      <h2 id="apt-inquiry-title">
+        Sea View Residence
+      </h2>
+
+    </div>
+
+
+    <form id="apt-inquiry-form">
+
+      <!-- =====================================
+           STAY DATES + ESTIMATED TOTAL
+      ====================================== -->
+
+      <div class="apt-inquiry-stay-grid">
+
+        <div class="apt-inquiry-date-panel bb-control-surface">
+
+          <span
+            class="apt-inquiry-section-label translatable"
+            data-en="Stay dates"
+            data-ka="დარჩენის თარიღები">
+            Stay dates
+          </span>
+
+          <button
+            type="button"
+            id="apt-range-toggle"
+            class="bb-date-toggle apt-range-toggle">
+
+            <img
+              class="bb-control-icon"
+              src="images/icons/listing/calendar-range.svg"
+              alt="">
+
+            <span id="apt-range-text">
+              Select dates
+            </span>
+
+          </button>
+
+        </div>
+
+
+        <div class="apt-inquiry-total-panel bb-control-surface">
+
+          <span
+            class="apt-inquiry-section-label translatable"
+            data-en="Estimated stay total"
+            data-ka="სავარაუდო ღირებულება">
+            Estimated stay total
+          </span>
+
+          <strong id="apt-inquiry-total">
+            —
+          </strong>
+
+          <span id="apt-inquiry-total-breakdown">
+            Select dates
+          </span>
+
+          <span
+            class="apt-inquiry-total-note translatable"
+            data-en="Accommodation only"
+            data-ka="მხოლოდ განთავსება">
+            Accommodation only
+          </span>
+
+        </div>
+
+
+        <!-- Shared date-range component -->
+
+        <div
+          id="apt-range-calendar"
+          class="bb-calendar bb-calendar-inline"
+          aria-hidden="true">
+
+          <div class="apt-calendar-top">
+
+            <button
+              type="button"
+              id="apt-calendar-prev"
+              aria-label="Previous month">
+              ‹
+            </button>
+
+            <strong id="apt-calendar-month">
+            </strong>
+
+            <button
+              type="button"
+              id="apt-calendar-next"
+              aria-label="Next month">
+              ›
+            </button>
+
+          </div>
+
+          <div
+            id="apt-calendar-hint"
+            class="apt-calendar-hint">
+          </div>
+
+          <div
+            id="apt-calendar-weekdays"
+            class="apt-calendar-weekdays">
+          </div>
+
+          <div
+            id="apt-calendar-days"
+            class="apt-calendar-days">
+          </div>
+
+          <div class="apt-calendar-actions">
+
+            <button
+              type="button"
+              id="apt-calendar-clear">
+
+              <span
+                class="translatable"
+                data-en="Clear"
+                data-ka="გასუფთავება">
+                Clear
+              </span>
+
+            </button>
+
+            <button
+              type="button"
+              id="apt-calendar-done">
+
+              <span
+                class="translatable"
+                data-en="Done"
+                data-ka="დასრულება">
+                Done
+              </span>
+
+            </button>
+
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================
+           REQUEST DETAILS
+      ====================================== -->
+
+      <div class="apt-request-details">
+
+        <div class="apt-request-detail-cell bb-control-surface">
+
+          <span
+            class="apt-inquiry-section-label translatable"
+            data-en="Guests"
+            data-ka="სტუმრები">
+            Guests
+          </span>
+
+          <div class="bb-stepper apt-stepper">
+
+            <button
+              type="button"
+              id="apt-guests-minus"
+              class="bb-stepper-button"
+              aria-label="Remove guest">
+              −
+            </button>
+
+            <strong
+              id="apt-inquiry-guests"
+              class="bb-stepper-value">
+              2
+            </strong>
+
+            <button
+              type="button"
+              id="apt-guests-plus"
+              class="bb-stepper-button"
+              aria-label="Add guest">
+              +
+            </button>
+
+          </div>
+
+        </div>
+
+
+        <div
+          class="apt-request-detail-cell bb-control-surface"
+          id="apt-pets-cell">
+
+          <span
+            class="apt-inquiry-section-label translatable"
+            data-en="Pets"
+            data-ka="შინაური ცხოველები">
+            Pets
+          </span>
+
+          <div
+            class="bb-stepper apt-stepper"
+            id="apt-pets-controls">
+
+            <button
+              type="button"
+              id="apt-pets-minus"
+              class="bb-stepper-button"
+              aria-label="Remove pet">
+              −
+            </button>
+
+            <strong
+              id="apt-inquiry-pets"
+              class="bb-stepper-value">
+              0
+            </strong>
+
+            <button
+              type="button"
+              id="apt-pets-plus"
+              class="bb-stepper-button"
+              aria-label="Add pet">
+              +
+            </button>
+
+          </div>
+
+          <span
+            id="apt-pets-unavailable"
+            class="apt-request-unavailable"
+            hidden>
+            No pets allowed
+          </span>
+
+        </div>
+
+
+        <div
+          class="apt-request-detail-cell bb-control-surface"
+          id="apt-parking-cell">
+
+          <span
+            class="apt-inquiry-section-label translatable"
+            data-en="Parking"
+            data-ka="პარკინგი">
+            Parking
+          </span>
+
+          <div
+            class="bb-stepper apt-stepper"
+            id="apt-parking-controls">
+
+            <button
+              type="button"
+              id="apt-parking-minus"
+              class="bb-stepper-button"
+              aria-label="Remove parking space">
+              −
+            </button>
+
+            <strong
+              id="apt-inquiry-parking"
+              class="bb-stepper-value">
+              0
+            </strong>
+
+            <button
+              type="button"
+              id="apt-parking-plus"
+              class="bb-stepper-button"
+              aria-label="Add parking space">
+              +
+            </button>
+
+          </div>
+
+          <span
+            id="apt-parking-unavailable"
+            class="apt-request-unavailable"
+            hidden>
+            Not available
+          </span>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================
+           SERVICE / ASSISTANCE ANIMAL
+      ====================================== -->
+
+      <div class="apt-service-animal-row bb-control-surface">
+
+        <div>
+
+          <span
+            class="apt-inquiry-section-label translatable"
+            data-en="Service / assistance animal"
+            data-ka="სერვის / დამხმარე ცხოველი">
+            Service / assistance animal
+          </span>
+
+          <span
+            class="apt-service-animal-note translatable"
+            data-en="Separate from the pet request"
+            data-ka="შინაური ცხოველის მოთხოვნისგან ცალკე">
+            Separate from the pet request
+          </span>
+
+        </div>
+
+        <div
+          class="apt-binary-toggle"
+          role="group"
+          aria-label="Service or assistance animal">
+
+          <button
+            type="button"
+            id="apt-service-no"
+            class="active">
+
+            <span
+              class="translatable"
+              data-en="No"
+              data-ka="არა">
+              No
+            </span>
+
+          </button>
+
+          <button
+            type="button"
+            id="apt-service-yes">
+
+            <span
+              class="translatable"
+              data-en="Yes"
+              data-ka="კი">
+              Yes
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+
+      <!-- =====================================
+           MESSAGE
+      ====================================== -->
+
+      <label class="apt-inquiry-message-field">
+
+        <span
+          class="apt-inquiry-section-label translatable"
+          data-en="Message to owner"
+          data-ka="შეტყობინება მესაკუთრეს">
+          Message to owner
+        </span>
+
+        <textarea
+          id="apt-inquiry-message"
+          rows="4"
+          maxlength="800"
+          placeholder="Optional"></textarea>
+
+      </label>
+
+
+      <button
+        type="submit"
+        class="apt-inquiry-submit">
+
+        <span
+          class="translatable"
+          data-en="Send availability request"
+          data-ka="ხელმისაწვდომობის მოთხოვნის გაგზავნა">
+          Send availability request
+        </span>
+
+      </button>
+
+
+      <div
+        id="apt-inquiry-status"
+        class="apt-inquiry-status"
+        aria-live="polite">
+      </div>
+
+    </form>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================
+     APARTMENT SEARCH / ALL LISTINGS
+====================================== -->
+
+<div
+  id="apt-browser"
+  aria-hidden="true"
+>
+
+  <div class="apt-browser-header">
+
+    <div>
+
+      <span
+        class="apt-browser-eyebrow translatable"
+        data-en="Bamboo Beach stays"
+        data-ka="Bamboo Beach აპარტამენტები">
+        Bamboo Beach stays
+      </span>
+
+      <h2
+        class="translatable"
+        data-en="Find your stay"
+        data-ka="იპოვეთ აპარტამენტი">
+        Find your stay
+      </h2>
+
+    </div>
+
+    <button
+      type="button"
+      id="apt-browser-close"
+      aria-label="Close search">
+      ×
+    </button>
+
+  </div>
+
+
+  <!-- =====================================
+       PRIMARY SEARCH
+  ====================================== -->
+
+  <div class="apt-browser-search">
+
+    <!-- DATES -->
+
+    <div
+      id="apt-filter-dates-field"
+      class="apt-filter-field bb-control-surface bb-icon-field bb-replaceable-field apt-filter-dates-field">
+
+      <button
+        type="button"
+        id="apt-search-range-toggle"
+        class="apt-search-range-toggle"
+        aria-label="Dates">
+
+        <img
+          src="images/icons/listing/calendar-range.svg"
+          class="bb-control-icon bb-control-default-icon"
+          alt="">
+
+        <span
+          id="apt-search-range-text"
+          class="bb-control-selection"
+          hidden>
+        </span>
+
+      </button>
+
+      <input
+        type="hidden"
+        id="apt-filter-checkin">
+
+      <input
+        type="hidden"
+        id="apt-filter-checkout">
+
+      <div
+        id="apt-search-range-calendar"
+        class="bb-calendar bb-calendar-popover"
+        aria-hidden="true">
+
+        <div class="apt-calendar-top">
+
+          <button
+            type="button"
+            id="apt-search-calendar-prev"
+            aria-label="Previous month">
+            ‹
+          </button>
+
+          <strong id="apt-search-calendar-month">
+          </strong>
+
+          <button
+            type="button"
+            id="apt-search-calendar-next"
+            aria-label="Next month">
+            ›
+          </button>
+
+        </div>
+
+        <div
+          id="apt-search-calendar-hint"
+          class="apt-calendar-hint">
+        </div>
+
+        <div
+          id="apt-search-calendar-weekdays"
+          class="apt-calendar-weekdays">
+        </div>
+
+        <div
+          id="apt-search-calendar-days"
+          class="apt-calendar-days">
+        </div>
+
+        <div class="apt-calendar-actions">
+
+          <button
+            type="button"
+            id="apt-search-calendar-clear">
+
+            <span
+              class="translatable"
+              data-en="Clear"
+              data-ka="გასუფთავება">
+              Clear
+            </span>
+
+          </button>
+
+          <button
+            type="button"
+            id="apt-search-calendar-done">
+
+            <span
+              class="translatable"
+              data-en="Done"
+              data-ka="დასრულება">
+              Done
+            </span>
+
+          </button>
+
+        </div>
+
+      </div>
+
+    </div>
+
+
+    <!-- GUESTS -->
+
+    <div class="apt-filter-field bb-control-surface bb-stepper-field">
+
+      <button
+        type="button"
+        id="apt-filter-guests-minus"
+        class="bb-field-half bb-field-half-left"
+        aria-label="Fewer guests">
+        −
+      </button>
+
+      <div class="bb-icon-center">
+
+        <img
+          src="images/icons/listing/users-round.svg"
+          class="bb-control-icon"
+          alt="">
+
+        <strong
+          id="apt-filter-guests-value"
+          class="bb-value-badge">
+          1
+        </strong>
+
+      </div>
+
+      <button
+        type="button"
+        id="apt-filter-guests-plus"
+        class="bb-field-half bb-field-half-right"
+        aria-label="More guests">
+        +
+      </button>
+
+      <select
+        id="apt-filter-guests"
+        hidden>
+        <option value="1" selected>1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+      </select>
+
+    </div>
+
+
+    <!-- BEDROOMS -->
+
+    <div class="apt-filter-field bb-control-surface bb-stepper-field">
+
+      <button
+        type="button"
+        id="apt-filter-bedrooms-minus"
+        class="bb-field-half bb-field-half-left"
+        aria-label="Fewer bedrooms">
+        −
+      </button>
+
+      <div class="bb-icon-center">
+
+        <img
+          src="images/icons/listing/bed-single.svg"
+          class="bb-control-icon"
+          alt="">
+
+        <strong
+          id="apt-filter-bedrooms-value"
+          class="bb-value-badge"
+          hidden>
+          0
+        </strong>
+
+      </div>
+
+      <button
+        type="button"
+        id="apt-filter-bedrooms-plus"
+        class="bb-field-half bb-field-half-right"
+        aria-label="More bedrooms">
+        +
+      </button>
+
+      <select
+        id="apt-filter-bedrooms"
+        hidden>
+        
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+      </select>
+
+    </div>
+
+
+   
+   <!-- VIEW -->
+
+<div
+  class="apt-filter-field bb-control-surface apt-filter-view-field"
+  id="apt-filter-view-field">
+
+<button
+  type="button"
+  class="apt-view-option"
+  data-view="mountain"
+  aria-pressed="false"
+  aria-label="Mountain view">
+
+  <img
+    src="images/icons/listing/mountains.svg"
+    class="bb-control-icon"
+    alt="">
+
+</button>
+
+
+<button
+  type="button"
+  class="apt-view-option"
+  data-view="sea"
+  aria-pressed="false"
+  aria-label="Sea view">
+
+  <img
+    src="images/icons/listing/sunset horizon.svg"
+    class="bb-control-icon"
+    alt="">
+
+</button>
+
+
+  <select
+    id="apt-filter-view"
+    hidden>
+
+    <option value="all" selected>
+      All
+    </option>
+
+    <option value="sea">
+      Sea
+    </option>
+
+    <option value="mountain">
+      Mountain
+    </option>
+
+  </select>
+
+</div>
+
+    <!-- MAX PRICE -->
+
+  <!-- MAX PRICE -->
+
+<div
+  id="apt-price-field"
+  class="apt-filter-field bb-control-surface bb-icon-field bb-replaceable-field apt-price-field">
+
+  <button
+    type="button"
+    id="apt-price-toggle"
+    class="apt-price-toggle"
+    aria-haspopup="listbox"
+    aria-expanded="false">
+
+    <img
+      src="images/icons/listing/circle-dollar-sign.svg"
+      class="bb-control-icon bb-control-default-icon"
+      alt="">
+
+    <span
+      id="apt-filter-price-display"
+      class="bb-control-selection"
+      hidden>
+    </span>
+
+  </button>
+
+
+  <div
+    id="apt-price-menu"
+    class="apt-price-menu"
+    role="listbox"
+    aria-hidden="true">
+
+    <button
+      type="button"
+      class="apt-price-option"
+      data-value="99999">
+
+      <span
+        class="translatable"
+        data-en="Any price"
+        data-ka="ნებისმიერი ფასი">
+        Any price
+      </span>
+
+    </button>
+
+    <button
+      type="button"
+      class="apt-price-option"
+      data-value="80">
+      $80
+    </button>
+
+    <button
+      type="button"
+      class="apt-price-option"
+      data-value="100">
+      $100
+    </button>
+
+    <button
+      type="button"
+      class="apt-price-option"
+      data-value="120">
+      $120
+    </button>
+
+    <button
+      type="button"
+      class="apt-price-option"
+      data-value="150">
+      $150
+    </button>
+
+  </div>
+
+
+  <!-- Keep this for the existing filtering engine -->
+
+  <select
+    id="apt-filter-price"
+    hidden>
+
+    <option value="99999" selected>Any</option>
+    <option value="80">$80</option>
+    <option value="100">$100</option>
+    <option value="120">$120</option>
+    <option value="150">$150</option>
+
+  </select>
+
+</div>
+
+
+
+
+    </label>
+
+  </div>
+
+
+  <!-- =====================================
+       QUICK FILTERS — ONE LINE
+  ====================================== -->
+
+  <div class="apt-quick-filter-area">
+
+    <div
+      id="apt-quick-filter-icon"
+      class="apt-quick-filter-main-icon"
+      title="Quick filters">
+
+      <img
+        src="images/icons/listing/sliders-horizontal.svg"
+        alt="">
+
+    </div>
+
+
+    <div class="apt-filter-chips">
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="wifi">
+        Wi-Fi
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="ac">
+        <span
+          class="translatable"
+          data-en="Air conditioning"
+          data-ka="კონდიციონერი">
+          Air conditioning
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="parking">
+        <span
+          class="translatable"
+          data-en="Parking"
+          data-ka="პარკინგი">
+          Parking
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="balcony">
+        <span
+          class="translatable"
+          data-en="Balcony"
+          data-ka="აივანი">
+          Balcony
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="kitchen">
+        <span
+          class="translatable"
+          data-en="Kitchen"
+          data-ka="სამზარეულო">
+          Kitchen
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="washer">
+        <span
+          class="translatable"
+          data-en="Washer"
+          data-ka="სარეცხი მანქანა">
+          Washer
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="elevator">
+        <span
+          class="translatable"
+          data-en="Elevator"
+          data-ka="ლიფტი">
+          Elevator
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="pets">
+        <span
+          class="translatable"
+          data-en="Pet friendly"
+          data-ka="შინაური ცხოველები">
+          Pet friendly
+        </span>
+      </button>
+
+      <button
+        type="button"
+        class="apt-filter-chip"
+        data-amenity="perks">
+        <span
+          class="translatable"
+          data-en="Guest perks"
+          data-ka="სტუმრის ბენეფიტები">
+          Guest perks
+        </span>
+      </button>
+
+    </div>
+
+
+    <button
+      type="button"
+      id="apt-filter-clear"
+      title="Clear filters"
+      aria-label="Clear filters">
+
+      <img
+        src="images/icons/listing/square-x.svg"
+        alt="">
+
+    </button>
+
+  </div>
+
+
+  <button
+    type="button"
+    id="apt-browser-return-search"
+    class="apt-browser-return-search"
+    aria-label="Return to search filters"
+    title="Search filters">
+
+    <svg
+      viewBox="0 0 24 24"
+      aria-hidden="true">
+      <circle cx="11" cy="11" r="7"></circle>
+      <path d="m20 20-3.5-3.5"></path>
+    </svg>
+
+  </button>
+
+
+  <!-- =====================================
+       RESULTS
+  ====================================== -->
+
+  <div class="apt-browser-results-header">
+
+    <span id="apt-browser-count">
+      4 apartments
+    </span>
+
+  </div>
+
+
+  <div
+    id="apt-browser-results"
+    class="apt-browser-results">
+  </div>
+
+
+  <div
+    id="apt-browser-empty"
+    class="apt-browser-empty">
+
+    <strong
+      class="translatable"
+      data-en="No apartments match these filters."
+      data-ka="ამ ფილტრებით აპარტამენტი ვერ მოიძებნა.">
+      No apartments match these filters.
+    </strong>
+
+    <span
+      class="translatable"
+      data-en="Try removing one or two filters."
+      data-ka="სცადეთ ერთი ან ორი ფილტრის მოხსნა.">
+      Try removing one or two filters.
+    </span>
+
+  </div>
+
+</div>
+
+
+<!-- =====================================
+     GUEST TOUR
+====================================== -->
+
+<div id="guest-tour">
+
+
+
+<!-- =====================================
+     PAGE 01 — HERO
+====================================== -->
+
+<section class="tour-section tour-hero">
+
+
+  <div class="hero-images">
+
+    <div class="hero-image hero-image-1">
+    </div>
+
+    <div class="hero-image hero-image-2">
+    </div>
+
+    <div class="hero-image hero-image-3">
+    </div>
+
+    <div class="hero-image hero-image-4">
+    </div>
+
+  </div>
+
+
+  <div class="hero-shade">
+  </div>
+
+
+  <div class="tour-content hero-content">
+
+
+    <p
+      class="hero-eyebrow translatable"
+      data-en="Tsikhisdziri · Georgia"
+      data-ka="ციხისძირი · საქართველო">
+      Tsikhisdziri · Georgia
+    </p>
+
+
+    <h1
+      class="hero-title translatable"
+      data-en="Bamboo Beach"
+      data-ka="Bamboo Beach">
+      Bamboo Beach
+    </h1>
+
+
+    <p
+      class="hero-description translatable"
+      data-en="Where the Black Sea meets the green hills of Adjara."
+      data-ka="ადგილი, სადაც შავი ზღვა აჭარის მწვანე მთებს ხვდება.">
+      Where the Black Sea meets the green hills of Adjara.
+    </p>
+
+
+  </div>
+
+
+
+  <div class="hero-bottom">
+
+    <span
+      class="hero-explore translatable"
+      data-en="See more"
+      data-ka="აღმოაჩინე">
+      Explore
+    </span>
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE 02 — ENTERTAINMENT
+====================================== -->
+
+<section
+  class="tour-section tour-entertainment"
+  id="entertainment"
+>
+
+
+  <!-- =====================================
+       UPPER EXPERIENCE DISPLAY
+  ====================================== -->
+
+  <div class="ent-stage">
+
+
+    <div class="ent-stage-copy">
+
+
+      <span id="ent-eyebrow">
+        Poolside
+      </span>
+
+
+      <h3 id="ent-stage-title">
+        Pool & Sun
+      </h3>
+
+
+      <p id="ent-stage-text">
+        Slow mornings, warm afternoons and nowhere you need to be.
+      </p>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         IMAGE COMPOSITION
+    ====================================== -->
+
+    <div class="ent-gallery">
+
+
+      <div
+        class="ent-photo ent-photo-main"
+        id="ent-photo-1">
+
+        <span>
+          IMAGE 1
+        </span>
+
+      </div>
+
+
+
+      <div
+        class="ent-photo ent-photo-small"
+        id="ent-photo-2">
+
+        <span>
+          IMAGE 2
+        </span>
+
+      </div>
+
+
+
+      <div
+        class="ent-photo ent-photo-wide"
+        id="ent-photo-3">
+
+        <span>
+          IMAGE 3
+        </span>
+
+      </div>
+
+
+    </div>
+
+
+  </div>
+
+
+
+  <!-- =====================================
+       SECTION TITLE
+  ====================================== -->
+
+  <div class="ent-section-title">
+
+    <span
+      class="translatable"
+      data-en="Things to do"
+      data-ka="გართობა">
+      Things to do
+    </span>
+
+  </div>
+
+
+
+  <!-- =====================================
+       EXPERIENCE SELECTORS
+  ====================================== -->
+
+  <div class="ent-selectors">
+
+
+
+    <!-- =====================================
+         POOL
+    ====================================== -->
+
+    <button
+      type="button"
+      class="ent-selector active"
+      data-experience="pool"
+      aria-pressed="true"
+    >
+
+
+      <div class="ent-object">
+
+
+        <div
+          class="ent-object-image"
+          id="ent-icon-pool">
+
+          <span class="ent-fallback">
+            🦩
+          </span>
+
+        </div>
+
+
+        <div class="ent-hover">
+
+          <span
+            class="translatable"
+            data-en="See more"
+            data-ka="იხილე მეტი">
+            Explore
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <span
+        class="ent-label"
+        data-en="Pool"
+        data-ka="აუზი">
+        Pool
+      </span>
+
+
+    </button>
+
+
+
+    <!-- =====================================
+         BAR
+    ====================================== -->
+
+    <button
+      type="button"
+      class="ent-selector"
+      data-experience="bar"
+      aria-pressed="false"
+    >
+
+
+      <div class="ent-object">
+
+
+        <div
+          class="ent-object-image"
+          id="ent-icon-bar">
+
+          <span class="ent-fallback">
+            🍹
+          </span>
+
+        </div>
+
+
+        <div class="ent-hover">
+
+          <span
+            class="translatable"
+            data-en="See more"
+            data-ka="იხილე მეტი">
+            Explore
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <span
+        class="ent-label"
+        data-en="Bar"
+        data-ka="ბარი">
+        Bar
+      </span>
+
+
+    </button>
+
+
+
+    <!-- =====================================
+         SEA
+    ====================================== -->
+
+    <button
+      type="button"
+      class="ent-selector"
+      data-experience="sea"
+      aria-pressed="false"
+    >
+
+
+      <div class="ent-object">
+
+
+        <div
+          class="ent-object-image"
+          id="ent-icon-sea">
+
+          <span class="ent-fallback">
+            🐚
+          </span>
+
+        </div>
+
+
+        <div class="ent-hover">
+
+          <span
+            class="translatable"
+            data-en="See more"
+            data-ka="იხილე მეტი">
+            Explore
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <span
+        class="ent-label"
+        data-en="Sea"
+        data-ka="ზღვა">
+        Sea
+      </span>
+
+
+    </button>
+
+
+
+    <!-- =====================================
+         HIKING
+    ====================================== -->
+
+    <button
+      type="button"
+      class="ent-selector"
+      data-experience="hiking"
+      aria-pressed="false"
+    >
+
+
+      <div class="ent-object">
+
+
+        <div
+          class="ent-object-image"
+          id="ent-icon-hiking">
+
+          <span class="ent-fallback">
+            🥾
+          </span>
+
+        </div>
+
+
+        <div class="ent-hover">
+
+          <span
+            class="translatable"
+            data-en="See more"
+            data-ka="იხილე მეტი">
+            Explore
+          </span>
+
+        </div>
+
+
+      </div>
+
+
+      <span
+        class="ent-label"
+        data-en="See more"
+        data-ka="აღმოაჩინე">
+        Explore
+      </span>
+
+
+    </button>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE 03 — APARTMENTS
+====================================== -->
+
+<section
+  class="tour-section tour-apartments"
+  id="apartments"
+>
+
+
+  <div class="apt-shell">
+
+
+    <!-- =====================================
+         HEADING
+    ====================================== -->
+
+    <div class="apt-heading">
+
+
+      <div class="apt-heading-copy">
+
+
+        <span
+          class="apt-eyebrow translatable"
+          data-en="03 · Stay at Bamboo Beach"
+          data-ka="03 · დარჩით Bamboo Beach-ში">
+          03 · Stay at Bamboo Beach
+        </span>
+
+
+        <h2
+          class="translatable"
+          data-en="Find your apartment"
+          data-ka="იპოვეთ თქვენი აპარტამენტი">
+          Find your apartment
+        </h2>
+
+
+        <p
+          class="apt-intro translatable"
+          data-en="Verified listings directly from Bamboo Beach property owners."
+          data-ka="დადასტურებული განცხადებები უშუალოდ Bamboo Beach-ის მესაკუთრეებისგან.">
+          Verified listings directly from Bamboo Beach property owners.
+        </p>
+
+
+      </div>
+
+
+
+      <!-- =====================================
+           APARTMENT NAVIGATION + SEARCH
+      ====================================== -->
+
+      <div class="apt-navigation">
+
+
+        <button
+          type="button"
+          id="apt-prev"
+          aria-label="Previous apartment">
+          ←
+        </button>
+
+
+        <button
+          type="button"
+          id="apt-next"
+          aria-label="Next apartment">
+          →
+        </button>
+
+
+        <button
+          type="button"
+          id="apt-browse-open"
+          class="apt-browse-open">
+
+
+          <span class="apt-search-symbol">
+            ⌕
+          </span>
+
+
+          <span
+            class="translatable"
+            data-en="Search / See all"
+            data-ka="ძებნა / ყველა">
+            Search / See all
+          </span>
+
+
+        </button>
+
+
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         LISTING CARDS
+    ====================================== -->
+
+    <div
+      class="apt-viewport"
+      id="apt-viewport"
+    >
+
+
+      <div
+        class="apt-track"
+        id="apt-track">
+      </div>
+
+
+    </div>
+
+
+
+    <!-- =====================================
+         FOOTER
+    ====================================== -->
+
+    <div class="apt-page-footer">
+
+
+      <span id="apt-position">
+        01 / 04
+      </span>
+
+
+      <span
+        class="apt-owner-note translatable"
+        data-en="Listings shown here are temporary samples."
+        data-ka="აქ ნაჩვენები განცხადებები დროებითი ნიმუშებია.">
+        Listings shown here are temporary samples.
+      </span>
+
+
+    </div>
+
+
+  </div>
+
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE 04 — AROUND
+====================================== -->
+
+<section class="tour-section tour-around">
+
+  <div class="tour-content">
+
+    <span class="tour-number">
+      04
+    </span>
+
+
+    <h2
+      class="translatable"
+      data-en="Explore the area"
+      data-ka="აღმოაჩინეთ გარემო">
+      Explore the area
+    </h2>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE 05 — WEATHER
+====================================== -->
+
+<section class="tour-section tour-weather">
+
+  <div class="tour-content">
+
+    <span class="tour-number">
+      05
+    </span>
+
+
+    <h2
+      class="translatable"
+      data-en="This week's weather"
+      data-ka="ამ კვირის ამინდი">
+      This week's weather
+    </h2>
+
+  </div>
+
+</section>
+
+
+
+<!-- =====================================
+     PAGE 06 — REVIEWS
+====================================== -->
+
+<section class="tour-section tour-reviews">
+
+  <div class="tour-content">
+
+    <span class="tour-number">
+      06
+    </span>
+
+
+    <h2
+      class="translatable"
+      data-en="What our guests say"
+      data-ka="რას ამბობენ ჩვენი სტუმრები">
+      What our guests say
+    </h2>
+
+  </div>
+
+</section>
+
+
+</div>
+
+
+
+<!-- =====================================
+     OWNER PLACEHOLDER
+====================================== -->
+
+<div id="owner-placeholder">
+
+  <h1 id="owner-placeholder-title">
+  </h1>
+
+</div>
+
+
+
+<!-- =====================================
+     OLD WEBSITE
+====================================== -->
+
+<header>
+  Welcome to
+  <br>
+  Bamboo Beach
+</header>
+
+
+
+<main class="page-content">
+
+
+  <!-- =====================================
+       HOME
+  ====================================== -->
+
+  <section
+    id="home"
+    class="section section-visible"
+  >
+
+    <h2
+      style="
+        text-align:center;
+        margin:3rem 0 1rem;
+      ">
+      Welcome Home
+    </h2>
+
+
+    <p
+      style="
+        text-align:center;
+        max-width:700px;
+        margin:0 auto 4rem;
+        line-height:1.6;
+      ">
+      This is the main landing area.
+      <br>
+      Use the floating menu in the bottom-right to navigate to other sections.
+    </p>
+
+
+  </section>
+
+
+
+  <!-- =====================================
+       POLLS
+  ====================================== -->
+
+  <section
+    id="polls"
+    class="section section-hidden"
+  >
+
+    <h2>
+      Polls
+    </h2>
+
+    <p>
+      Community polls and voting will appear here.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================
+       EVENTS
+  ====================================== -->
+
+  <section
+    id="events"
+    class="section section-hidden"
+  >
+
+    <h2>
+      Events
+    </h2>
+
+    <p>
+      Upcoming events calendar and details.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================
+       BILLS
+  ====================================== -->
+
+  <section
+    id="bills"
+    class="section section-hidden"
+  >
+
+    <h2>
+      Bills & Maintenance Fees
+    </h2>
+
+
+    <p
+      style="
+        text-align:center;
+        margin:1rem 0 2rem;
+      ">
+      Calculate your service fees below
+    </p>
+
+
+
+    <div class="calculator">
+
+
+      <select id="period">
+
+        <option
+          value=""
+          disabled
+          selected>
+          მომსახურების ვადა / Fee period
+        </option>
+
+        <option value="12">
+          სრული წელი / Full Year
+        </option>
+
+        <option value="6">
+          ნახევარი წელი / Half Year
+        </option>
+
+      </select>
+
+
+
+      <div class="input-with-unit">
+
+        <input
+          type="number"
+          id="apartment"
+          placeholder="ბინა და აივანი / Apt & Balcony"
+        >
+
+        <span class="unit">
+          m²
+        </span>
+
+      </div>
+
+
+
+      <input
+        type="number"
+        id="commercial"
+        placeholder="კომერციული ფართი / Commercial Space"
+      >
+
+
+
+      <input
+        type="number"
+        id="terrace"
+        placeholder="ტერასა / Terrace"
+      >
+
+
+
+      <input
+        type="number"
+        id="support"
+        placeholder="დამხმარე ფართი / Support Area"
+      >
+
+
+
+      <input
+        type="number"
+        id="parking"
+        placeholder="ავტოფარეხი / Parking"
+      >
+
+
+
+      <div class="input-with-unit">
+
+        <input
+          type="number"
+          id="xrate"
+          placeholder="USD - GEL კურსი / Exchange Rate"
+        >
+
+        <span class="unit">
+
+          <a
+            href="https://tbcbank.ge/en/treasury-products/USD-to-GEL"
+            target="_blank">
+            🌐
+          </a>
+
+        </span>
+
+      </div>
+
+
+
+      <div class="result">
+
+        <span>
+          Total Fee:
+        </span>
+
+        <span id="gelAmount">
+          ₾ 0.00
+        </span>
+
+        |
+
+        <span id="usdAmount">
+          $ 0.00
+        </span>
+
+      </div>
+
+
+
+      <div class="result">
+
+        <h4>
+          რეკვიზიტები / Account Details
+        </h4>
+
+      </div>
+
+
+
+      <div class="result">
+
+        <a
+          href="files/account-details GEL.pdf"
+          target="_blank"
+          class="pdf-link">
+          GEL
+        </a>
+
+        |
+
+        <a
+          href="files/account-details USD.pdf"
+          target="_blank"
+          class="pdf-link">
+          USD
+        </a>
+
+      </div>
+
+
+
+      <button
+        type="button"
+        onclick="clearFields()">
+        Clear
+      </button>
+
+
+    </div>
+
+  </section>
+
+
+
+  <!-- =====================================
+       INFO
+  ====================================== -->
+
+  <section
+    id="info"
+    class="section section-hidden"
+  >
+
+    <h2>
+      Information
+    </h2>
+
+    <p>
+      General info, rules, contacts, documents, etc.
+    </p>
+
+  </section>
+
+
+
+  <!-- =====================================
+       FAQ
+  ====================================== -->
+
+  <section
+    id="faqs"
+    class="section section-hidden"
+  >
+
+
+    <h2
+      style="
+        text-align:center;
+        margin:3rem 0 1rem;
+      ">
+      ხშირად დასმული კითხვები
+    </h2>
+
+
+
+    <p
+      style="
+        text-align:center;
+        max-width:800px;
+        margin:0 auto 2rem;
+        line-height:1.6;
+        color:#fff;
+        text-shadow:1px 1px 3px #000;
+      ">
+    </p>
+
+
+
+    <!-- FAQ SEARCH -->
+
+    <div
+      style="
+        max-width:800px;
+        margin:0 auto 2rem;
+      ">
+
+      <input
+        type="search"
+        id="faq-search"
+        style="
+          width:100%;
+          padding:14px 18px;
+          font-size:1.1rem;
+          border:none;
+          border-radius:12px;
+          background:rgba(255,255,255,0.9);
+          box-shadow:0 4px 12px rgba(0,0,0,0.2);
+          outline:none;
+        "
+      >
+
+    </div>
+
+
+
+    <div
+      id="faq-list"
+      style="
+        max-width:800px;
+        margin:0 auto;
+      ">
+    </div>
+
+
+
+    <!-- =====================================
+         CONTACT
+    ====================================== -->
+
+    <div
+      id="faq-contact"
+      style="
+        text-align:center;
+        margin-top:4rem;
+        padding:2rem;
+        background:rgba(130,193,245,0.1);
+        border-radius:12px;
+        border:1px solid rgba(255,255,255,0.3);
+      "
+    >
+
+
+      <p
+        id="contact-title"
+        style="
+          font-size:1.2rem;
+          font-weight:500;
+          margin-bottom:1.5rem;
+          color:#fff;
+          text-shadow:1px 1px 3px #000;
+        ">
+      </p>
+
+
+
+      <div
+        style="
+          display:flex;
+          flex-direction:column;
+          gap:1rem;
+          max-width:500px;
+          margin:0 auto;
+          color:#eee;
+        "
+      >
+
+
+        <div>
+
+          <strong id="label-email-owners">
+            HOA Email:
+          </strong>
+
+          <a
+            href="mailto:bamboowners@gmail.com"
+            style="color:#355a79;">
+            bamboowners@gmail.com
+          </a>
+
+        </div>
+
+
+
+        <div>
+
+          <strong id="label-email-bene">
+            Service Company “Bene Comfort” Email:
+          </strong>
+
+          <a
+            href="mailto:bbtsikhisdziri@benec.ge"
+            style="color:#355a79;">
+            bbtsikhisdziri@benec.ge
+          </a>
+
+        </div>
+
+
+
+        <div>
+
+          <strong id="label-admin-phone">
+            Administration:
+          </strong>
+
+          <a
+            href="tel:+995558557016"
+            style="color:#355a79;">
+            +995 558 557 016
+          </a>
+
+        </div>
+
+
+
+        <div>
+
+          <strong id="label-hotline">
+            Hotline:
+          </strong>
+
+          <a
+            href="tel:0322052838"
+            style="color:#355a79;">
+            032 2 05 28 38
+          </a>
+
+        </div>
+
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+
+</main>
+
+
+
+<!-- =====================================
+     OLD FOOTER
+====================================== -->
+
+<footer>
+
+  <span class="icon2">
+    🚧
+  </span>
+
+  <span class="icon">
+    🚧
+  </span>
+
+  Under Construction
+
+  <span class="icon">
+    🚧
+  </span>
+
+  <span class="icon2">
+    🚧
+  </span>
+
+</footer>
+
+
+
+<!-- =====================================
+     FLOATING MENU
+====================================== -->
+
+<div
+  class="floating-dots"
+  id="floatingDots"
+>
+
+
+  <span class="dot dot-top">
+  </span>
+
+  <span class="dot dot-middle">
+  </span>
+
+  <span class="dot dot-bottom">
+  </span>
+
+
+
+  <div class="action-menu">
+
+
+    <a
+      href="#bills"
+      class="action-item"
+      data-target="bills">
+      ₾
+    </a>
+
+
+    <a
+      href="#faqs"
+      class="action-item"
+      data-target="faqs">
+      ❓
+    </a>
+
+
+    <button
+      type="button"
+      id="lang-toggle"
+      class="action-item lang-toggle-btn"
+      aria-label="Switch language">
+      KA
+    </button>
+
+
+  </div>
+
+
+</div>
+
+
+
+<!-- =====================================
+     SCRIPT
+====================================== -->
+
+<script src="script.js"></script>
+
+
+</body>
+
+</html>
