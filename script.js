@@ -3013,8 +3013,8 @@ observer.observe(
         'perks'
       ],
       en: {
-        view: 'Coastal view',
-        title: 'Coastal Residence',
+        view: 'Panorama view',
+        title: 'Panoramic Residence',
         description:
           'A spacious apartment for longer stays, combining comfortable interiors with the atmosphere of the coast.'
       },
