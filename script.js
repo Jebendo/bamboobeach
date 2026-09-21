@@ -3014,13 +3014,13 @@ observer.observe(
       ],
       en: {
         view: 'Panorama view',
-        title: 'Panoramic Residence',
+        title: 'Pano Residence',
         description:
           'A spacious apartment for longer stays, combining comfortable interiors with the atmosphere of the coast.'
       },
       ka: {
-        view: 'სანაპიროს ხედი',
-        title: 'სანაპიროს აპარტამენტი',
+        view: 'პანორამული ხედი',
+        title: 'პანო აპარტამენტი',
         description:
           'ფართო აპარტამენტი ხანგრძლივი დასვენებისთვის, კომფორტული ინტერიერითა და სანაპიროს ატმოსფეროთი.'
       }
