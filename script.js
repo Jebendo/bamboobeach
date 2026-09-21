@@ -5108,25 +5108,32 @@ function rangeCrossesUnavailableDate(
       return false;
     }
 
-    if (
-  selectedViews.size > 0
-) {
+if (selectedViews.size === 1) {
 
-  const hasEverySelectedView =
-    Array.from(
-      selectedViews
-    ).every(
-      view =>
-        listing.views?.includes(
-          view
-        )
+  const selectedView =
+    Array.from(selectedViews)[0];
+
+  const isExactSingleView =
+    listing.views?.length === 1 &&
+    listing.views.includes(
+      selectedView
     );
 
-
-  if (!hasEverySelectedView) {
+  if (!isExactSingleView) {
     return false;
   }
+}
 
+
+if (selectedViews.size === 2) {
+
+  const hasBothViews =
+    listing.views?.includes('sea') &&
+    listing.views?.includes('mountain');
+
+  if (!hasBothViews) {
+    return false;
+  }
 }
 
     if (listing.price > maximumPrice) {
