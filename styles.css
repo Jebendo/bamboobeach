@@ -1411,33 +1411,1269 @@ footer {
 }
 
 
+/* ========================================
+   AROUND BAMBOO BEACH
+======================================== */
+
 .tour-around {
+  position: relative;
+
+  padding:
+    clamp(32px, 5vw, 72px)
+    clamp(20px, 6vw, 90px);
+
   background:
     linear-gradient(
-      145deg,
-      #a8db9b,
-      #e8f2c8
+      180deg,
+      #f5f1e7 0%,
+      #eef3ef 100%
     );
+
+  color: #173c44;
 }
 
+
+/* ========================================
+   LAYOUT
+======================================== */
+
+.around-shell {
+  width: min(100%, 1320px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.72fr)
+    minmax(0, 1.5fr);
+
+  gap:
+    clamp(35px, 6vw, 90px);
+
+  align-items: center;
+}
+
+
+/* ========================================
+   COPY
+======================================== */
+
+.around-copy {
+  max-width: 470px;
+}
+
+
+.around-eyebrow {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 11px;
+
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  opacity: 0.55;
+}
+
+
+.around-title {
+  font-size:
+    clamp(46px, 6vw, 84px);
+
+  line-height: 0.95;
+
+  font-weight: 500;
+
+  letter-spacing: -2px;
+}
+
+
+.around-description {
+  max-width: 420px;
+
+  margin-top: 24px;
+
+  font-size:
+    clamp(15px, 1.5vw, 19px);
+
+  line-height: 1.6;
+
+  opacity: 0.72;
+}
+
+
+/* ========================================
+   DESTINATION CARDS
+======================================== */
+
+.around-cards {
+  display: grid;
+
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+
+.around-card {
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(23,60,68,0.08);
+
+  border-radius: 26px;
+
+  background:
+    rgba(255,255,255,0.76);
+
+  box-shadow:
+    0 14px 36px
+    rgba(32,55,55,0.08);
+
+  transition:
+    transform 0.28s ease,
+    box-shadow 0.28s ease;
+}
+
+
+.around-card:hover {
+  transform:
+    translateY(-5px);
+
+  box-shadow:
+    0 20px 46px
+    rgba(32,55,55,0.13);
+}
+
+
+/* ========================================
+   CARD IMAGE
+======================================== */
+
+.around-card-photo {
+  width: 100%;
+
+  aspect-ratio: 16 / 10;
+
+  background-color:
+    #d9dfd9;
+
+  background-size: cover;
+
+  background-position: center;
+
+  background-repeat: no-repeat;
+}
+
+
+/* ========================================
+   CARD TEXT
+======================================== */
+
+.around-card-body {
+  padding:
+    17px 18px 19px;
+}
+
+
+.around-card-type {
+  display: block;
+
+  margin-bottom: 7px;
+
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 2px;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
+
+.around-card h3 {
+  margin: 0;
+
+  font-size:
+    clamp(21px, 2vw, 29px);
+
+  line-height: 1.05;
+
+  font-weight: 500;
+}
+
+
+.around-card-distance {
+  display: block;
+
+  margin-top: 10px;
+
+  font-size: 11px;
+
+  line-height: 1.35;
+
+  opacity: 0.62;
+}
+
+/* ========================================
+   AROUND — MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .tour-around {
+    padding:
+      max(
+        24px,
+        env(safe-area-inset-top)
+      )
+      18px
+      max(
+        24px,
+        env(safe-area-inset-bottom)
+      );
+
+    align-items: flex-start;
+
+    overflow: hidden;
+  }
+
+
+  .around-shell {
+    width: 100%;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 24px;
+
+    align-content: start;
+  }
+
+
+  .around-copy {
+    max-width: none;
+  }
+
+
+  .around-eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .around-title {
+    font-size:
+      clamp(38px, 11vw, 54px);
+
+    line-height: 0.95;
+
+    letter-spacing: -1px;
+  }
+
+
+  .around-description {
+    margin-top: 14px;
+
+    font-size: 14px;
+
+    line-height: 1.45;
+  }
+
+
+  /* horizontal swipe */
+
+  .around-cards {
+    width:
+      calc(
+        100% + 18px
+      );
+
+    display: flex;
+
+    gap: 14px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    padding-right: 18px;
+    padding-bottom: 8px;
+
+    scroll-snap-type:
+      x mandatory;
+
+    overscroll-behavior-x:
+      contain;
+
+    scrollbar-width: none;
+
+    touch-action: pan-x;
+  }
+
+
+  .around-cards::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .around-card {
+    flex:
+      0 0
+      min(
+        78vw,
+        330px
+      );
+
+    scroll-snap-align:
+      start;
+
+    border-radius: 22px;
+  }
+
+
+  .around-card:hover {
+    transform: none;
+  }
+
+
+  .around-card-body {
+    padding:
+      15px 16px 17px;
+  }
+
+
+  .around-card h3 {
+    font-size: 23px;
+  }
+
+}
+
+
+/* ========================================
+   WEATHER
+======================================== */
 
 .tour-weather {
+  position: relative;
+
+  padding:
+    clamp(32px, 5vw, 72px)
+    clamp(20px, 6vw, 90px);
+
   background:
     linear-gradient(
-      145deg,
-      #6ac8ef,
-      #dff7ff
+      180deg,
+      #edf6f5 0%,
+      #f8f4e9 100%
     );
+
+  color: #173c44;
 }
 
 
+/* ========================================
+   WEATHER SHELL
+======================================== */
+
+.weather-shell {
+  width: min(100%, 1240px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.75fr)
+    minmax(0, 1.35fr);
+
+  gap:
+    clamp(35px, 6vw, 90px);
+
+  align-items: center;
+}
+
+
+/* ========================================
+   COPY
+======================================== */
+
+.weather-copy {
+  max-width: 470px;
+}
+
+
+.weather-eyebrow {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  opacity: 0.55;
+}
+
+
+.weather-title {
+  margin: 0;
+
+  font-size:
+    clamp(52px, 7vw, 98px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+
+  letter-spacing: -2px;
+}
+
+
+.weather-description {
+  max-width: 430px;
+
+  margin-top: 24px;
+
+  font-size:
+    clamp(15px, 1.5vw, 19px);
+
+  line-height: 1.55;
+
+  opacity: 0.7;
+}
+
+
+/* ========================================
+   CURRENT WEATHER
+======================================== */
+
+.weather-current {
+  padding:
+    clamp(22px, 3vw, 34px);
+
+  border:
+    1px solid
+    rgba(23,60,68,0.10);
+
+  border-radius: 30px;
+
+  background:
+    rgba(255,255,255,0.72);
+
+  box-shadow:
+    0 18px 46px
+    rgba(32,55,55,0.08);
+}
+
+
+.weather-current-main {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    clamp(18px, 3vw, 34px);
+}
+
+
+.weather-temperature {
+  font-size:
+    clamp(72px, 10vw, 135px);
+
+  line-height: 0.82;
+
+  font-weight: 500;
+
+  letter-spacing: -6px;
+}
+
+
+.weather-current-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 7px;
+}
+
+
+.weather-current-copy strong {
+  font-size:
+    clamp(20px, 2vw, 28px);
+
+  font-weight: 500;
+}
+
+
+.weather-current-copy span {
+  font-size: 12px;
+
+  opacity: 0.58;
+}
+
+
+/* ========================================
+   WEATHER DETAILS
+======================================== */
+
+.weather-details {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-top: 28px;
+}
+
+
+.weather-detail {
+  min-height: 88px;
+
+  padding:
+    15px 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border:
+    1px solid
+    rgba(23,60,68,0.08);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255,255,255,0.62);
+}
+
+
+.weather-detail span {
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
+
+.weather-detail strong {
+  font-size: 20px;
+
+  font-weight: 500;
+}
+
+
+/* ========================================
+   FORECAST
+======================================== */
+
+.weather-forecast {
+  grid-column: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(4, minmax(0, 1fr));
+
+  gap: 10px;
+
+  margin-top: -50px;
+}
+
+
+.weather-forecast-day {
+  min-height: 105px;
+
+  padding:
+    16px 14px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border:
+    1px solid
+    rgba(23,60,68,0.09);
+
+  border-radius: 20px;
+
+  background:
+    rgba(255,255,255,0.58);
+
+  text-align: center;
+}
+
+
+.weather-forecast-day span {
+  font-size: 10px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
+
+.weather-forecast-day strong {
+  font-size: 20px;
+
+  font-weight: 500;
+}
+
+
+/* ========================================
+   UPDATED TIME
+======================================== */
+
+.weather-updated {
+  grid-column: 2;
+
+  display: block;
+
+  margin-top: -54px;
+
+  font-size: 9px;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  text-align: right;
+
+  opacity: 0.4;
+}
+
+
+/* ========================================
+   WEATHER — MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .tour-weather {
+    padding:
+      max(
+        24px,
+        env(safe-area-inset-top)
+      )
+      18px
+      max(
+        24px,
+        env(safe-area-inset-bottom)
+      );
+
+    align-items: flex-start;
+  }
+
+
+  .weather-shell {
+    width: 100%;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 20px;
+
+    align-content: start;
+  }
+
+
+  .weather-copy {
+    max-width: none;
+  }
+
+
+  .weather-eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .weather-title {
+    font-size:
+      clamp(44px, 13vw, 66px);
+
+    letter-spacing: -1px;
+  }
+
+
+  .weather-description {
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+  }
+
+
+  .weather-current {
+    padding: 20px;
+
+    border-radius: 24px;
+  }
+
+
+  .weather-temperature {
+    font-size:
+      clamp(68px, 21vw, 94px);
+
+    letter-spacing: -4px;
+  }
+
+
+  .weather-current-copy strong {
+    font-size: 19px;
+  }
+
+
+  .weather-details {
+    gap: 7px;
+
+    margin-top: 20px;
+  }
+
+
+  .weather-detail {
+    min-height: 76px;
+
+    padding:
+      12px 9px;
+
+    border-radius: 17px;
+  }
+
+
+  .weather-detail span {
+    font-size: 8px;
+  }
+
+
+  .weather-detail strong {
+    font-size: 16px;
+  }
+
+
+  .weather-forecast {
+    grid-column: 1;
+
+    width:
+      calc(
+        100% + 18px
+      );
+
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 0;
+
+    padding-right: 18px;
+    padding-bottom: 6px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type:
+      x mandatory;
+
+    scrollbar-width: none;
+
+    touch-action: pan-x;
+  }
+
+
+  .weather-forecast::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .weather-forecast-day {
+    flex:
+      0 0
+      105px;
+
+    min-height: 96px;
+
+    scroll-snap-align: start;
+
+    border-radius: 18px;
+  }
+
+
+  .weather-updated {
+    grid-column: 1;
+
+    margin-top: -8px;
+
+    text-align: left;
+  }
+
+}
+
+
+/* ========================================
+   REVIEWS
+======================================== */
+
 .tour-reviews {
+  position: relative;
+
+  padding:
+    clamp(32px, 5vw, 72px)
+    clamp(20px, 6vw, 90px);
+
   background:
     linear-gradient(
-      145deg,
-      #ffeccf,
-      #ffffff
+      180deg,
+      #f8f4eb 0%,
+      #f3f1ec 100%
     );
+
+  color: #173c44;
+}
+
+
+/* ========================================
+   REVIEWS SHELL
+======================================== */
+
+.reviews-shell {
+  width: min(100%, 1280px);
+
+  margin: 0 auto;
+
+  display: grid;
+
+  grid-template-columns:
+    minmax(260px, 0.72fr)
+    minmax(0, 1.4fr);
+
+  gap:
+    clamp(35px, 6vw, 90px);
+
+  align-items: center;
+}
+
+
+/* ========================================
+   COPY
+======================================== */
+
+.reviews-copy {
+  max-width: 470px;
+}
+
+
+.reviews-eyebrow {
+  display: block;
+
+  margin-bottom: 14px;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 3px;
+
+  text-transform: uppercase;
+
+  opacity: 0.55;
+}
+
+
+.reviews-title {
+  margin: 0;
+
+  font-size:
+    clamp(48px, 6.4vw, 88px);
+
+  line-height: 0.94;
+
+  font-weight: 500;
+
+  letter-spacing: -2px;
+}
+
+
+.reviews-description {
+  max-width: 430px;
+
+  margin-top: 24px;
+
+  font-size:
+    clamp(15px, 1.5vw, 19px);
+
+  line-height: 1.55;
+
+  opacity: 0.7;
+}
+
+
+/* ========================================
+   SUMMARY
+======================================== */
+
+.reviews-summary {
+  display: flex;
+
+  align-items: center;
+
+  gap:
+    clamp(18px, 3vw, 32px);
+
+  padding:
+    clamp(20px, 3vw, 30px);
+
+  border:
+    1px solid
+    rgba(23,60,68,0.10);
+
+  border-radius: 28px;
+
+  background:
+    rgba(255,255,255,0.72);
+
+  box-shadow:
+    0 16px 42px
+    rgba(32,55,55,0.07);
+}
+
+
+.reviews-score {
+  display: flex;
+
+  align-items: baseline;
+
+  gap: 5px;
+}
+
+
+.reviews-score strong {
+  font-size:
+    clamp(54px, 7vw, 92px);
+
+  line-height: 0.9;
+
+  font-weight: 500;
+
+  letter-spacing: -4px;
+}
+
+
+.reviews-score span {
+  font-size: 16px;
+
+  opacity: 0.48;
+}
+
+
+.reviews-summary-copy {
+  display: flex;
+
+  flex-direction: column;
+
+  gap: 9px;
+}
+
+
+.reviews-stars {
+  font-size: 18px;
+
+  letter-spacing: 3px;
+
+  color: #12664a;
+}
+
+
+#reviews-count {
+  font-size: 11px;
+
+  letter-spacing: 0.5px;
+
+  opacity: 0.55;
+}
+
+
+/* ========================================
+   REVIEW TRACK
+======================================== */
+
+.reviews-track {
+  grid-column: 2;
+
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 14px;
+
+  margin-top: -42px;
+}
+
+
+/* ========================================
+   REVIEW CARD
+======================================== */
+
+.review-card {
+  min-height: 220px;
+
+  padding:
+    20px 18px;
+
+  display: flex;
+
+  flex-direction: column;
+
+  justify-content: space-between;
+
+  border:
+    1px solid
+    rgba(23,60,68,0.08);
+
+  border-radius: 24px;
+
+  background:
+    rgba(255,255,255,0.66);
+
+  box-shadow:
+    0 12px 32px
+    rgba(32,55,55,0.06);
+}
+
+
+.review-card-top {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.review-guest {
+  font-size: 13px;
+
+  font-weight: 600;
+}
+
+
+.review-rating {
+  font-size: 11px;
+
+  opacity: 0.68;
+}
+
+
+.review-text {
+  margin:
+    22px 0;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+
+  opacity: 0.76;
+}
+
+
+.review-card-bottom {
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  gap: 12px;
+}
+
+
+.review-stay {
+  font-size: 9px;
+
+  font-weight: 600;
+
+  letter-spacing: 1px;
+
+  text-transform: uppercase;
+
+  opacity: 0.5;
+}
+
+
+.review-date {
+  font-size: 10px;
+
+  opacity: 0.42;
+}
+
+/* ========================================
+   REVIEWS — MOBILE
+======================================== */
+
+@media (max-width: 700px) {
+
+  .tour-reviews {
+    padding:
+      max(
+        24px,
+        env(safe-area-inset-top)
+      )
+      18px
+      max(
+        24px,
+        env(safe-area-inset-bottom)
+      );
+
+    align-items: flex-start;
+
+    overflow: hidden;
+  }
+
+
+  .reviews-shell {
+    width: 100%;
+
+    grid-template-columns:
+      1fr;
+
+    gap: 20px;
+
+    align-content: start;
+  }
+
+
+  .reviews-copy {
+    max-width: none;
+  }
+
+
+  .reviews-eyebrow {
+    margin-bottom: 8px;
+
+    font-size: 9px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .reviews-title {
+    font-size:
+      clamp(40px, 11.5vw, 58px);
+
+    line-height: 0.95;
+
+    letter-spacing: -1px;
+  }
+
+
+  .reviews-description {
+    margin-top: 12px;
+
+    font-size: 14px;
+
+    line-height: 1.4;
+  }
+
+
+  .reviews-summary {
+    padding: 18px;
+
+    border-radius: 22px;
+  }
+
+
+  .reviews-score strong {
+    font-size:
+      clamp(48px, 15vw, 68px);
+
+    letter-spacing: -3px;
+  }
+
+
+  .reviews-stars {
+    font-size: 15px;
+
+    letter-spacing: 2px;
+  }
+
+
+  .reviews-track {
+    grid-column: 1;
+
+    width:
+      calc(
+        100% + 18px
+      );
+
+    display: flex;
+
+    gap: 12px;
+
+    margin-top: 0;
+
+    padding-right: 18px;
+    padding-bottom: 6px;
+
+    overflow-x: auto;
+    overflow-y: hidden;
+
+    scroll-snap-type:
+      x mandatory;
+
+    scrollbar-width: none;
+
+    touch-action: pan-x;
+  }
+
+
+  .reviews-track::-webkit-scrollbar {
+    display: none;
+  }
+
+
+  .review-card {
+    flex:
+      0 0
+      min(
+        78vw,
+        320px
+      );
+
+    min-height: 210px;
+
+    scroll-snap-align: start;
+
+    border-radius: 20px;
+  }
+
 }
 
 
