@@ -6852,7 +6852,7 @@ if (
   // Mobile
   let touchStartX = 0;
   let touchStartY = 0;
-  let touchStartedInApartmentScroller = false;
+  let touchStartedInHorizontalScroller = false;
 
 
 
@@ -7219,10 +7219,12 @@ if (horizontalGesture) {
       touchStartY =
         event.touches[0].clientY;
 
-      touchStartedInApartmentScroller =
-        Boolean(
-          event.target.closest('.apt-viewport')
-        );
+      touchStartedInHorizontalScroller =
+  Boolean(
+    event.target.closest(
+      '.apt-viewport, .around-cards, .weather-forecast, .reviews-track'
+    )
+  );
 
     },
 
@@ -7256,11 +7258,11 @@ if (horizontalGesture) {
       */
 
       if (
-        touchStartedInApartmentScroller &&
-        horizontalDistance > verticalDistance
-      ) {
-        return;
-      }
+  touchStartedInHorizontalScroller &&
+  horizontalDistance > verticalDistance
+) {
+  return;
+}
 
       /*
         Everywhere else, consume native
@@ -7307,12 +7309,12 @@ if (horizontalGesture) {
 
 
       if (
-        touchStartedInApartmentScroller &&
-        Math.abs(horizontalDistance) >
-          Math.abs(distance)
-      ) {
-        return;
-      }
+  touchStartedInHorizontalScroller &&
+  Math.abs(horizontalDistance) >
+    Math.abs(distance)
+) {
+  return;
+}
 
 
       if (
