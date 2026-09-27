@@ -31,6 +31,10 @@
     href="styles.css"
   >
 
+  <link
+  rel="stylesheet"
+  href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+
   <title>
     Bamboo Beach
   </title>
@@ -1137,7 +1141,7 @@
 
 </div>
 
-    <!-- MAX PRICE -->
+  
 
   <!-- MAX PRICE -->
 
@@ -1236,9 +1240,7 @@
 
 
 
-    </label>
-
-  </div>
+</div>
 
 
   <!-- =====================================
@@ -2036,6 +2038,25 @@
         Discover the coast, history, nature and city life surrounding Bamboo Beach.
       </p>
 
+      <button
+  id="around-map-toggle"
+  class="around-map-toggle"
+  type="button"
+  aria-expanded="false">
+
+  <span
+    class="translatable"
+    data-en="View map"
+    data-ka="რუკის ნახვა">
+    View map
+  </span>
+
+  <span aria-hidden="true">
+    ↗
+  </span>
+
+</button>
+
     </div>
 
 
@@ -2189,7 +2210,33 @@
       </article>
 
     </div>
+      <div
+        <div
+          id="around-map-panel"
+          class="around-map-panel"
+          role="dialog"
+          aria-label="Around Bamboo Beach map"
+          hidden >   
 
+              <button
+                type="button"
+                id="around-map-close"
+                class="around-map-close"
+                aria-label="Close map">
+                ×
+              </button>
+
+
+          <div class="around-map-frame">
+
+            <div id="around-map"></div>
+
+          </div>
+
+        </div>
+
+      </div>   
+      
   </div>
 
 </section>
@@ -3107,6 +3154,10 @@
 <!-- =====================================
      SCRIPT
 ====================================== -->
+
+<script
+  src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js">
+</script>
 
 <script src="script.js"></script>
 

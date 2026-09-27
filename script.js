@@ -6840,10 +6840,6 @@ if (
   // Trackpad / mouse gesture
   let wheelGestureActive = false;
 
-  let lastWheelTime = 0;
-  let lastWheelMagnitude = 0;
-  let lastWheelDirection = 0;
-
   let wheelEndTimer = null;
   let apartmentWheelLocked = false;
   let apartmentWheelEndTimer = null;
@@ -6853,6 +6849,7 @@ if (
   let touchStartX = 0;
   let touchStartY = 0;
   let touchStartedInHorizontalScroller = false;
+  let touchStartedInInteractiveMap = false;
 
 
 
@@ -7043,158 +7040,84 @@ if (horizontalGesture) {
 
       event.preventDefault();
 
+const magnitude =
+  Math.abs(event.deltaY);
 
-      const now =
-        performance.now();
 
+const direction =
+  Math.sign(event.deltaY);
 
-      const magnitude =
-        Math.abs(event.deltaY);
 
+/*
+  Ignore tiny trackpad noise.
+*/
 
-      const direction =
-        Math.sign(event.deltaY);
+if (magnitude < 5) {
+  return;
+}
 
 
-      if (magnitude < 5) {
-        return;
-      }
+/*
+  Keep the gesture locked until
+  the trackpad has completely
+  stopped sending momentum.
+*/
 
+clearTimeout(
+  wheelEndTimer
+);
 
 
-      const gap =
-        now - lastWheelTime;
+wheelEndTimer =
+  setTimeout(
+    () => {
 
+      wheelGestureActive =
+        false;
 
+    },
+    180
+  );
 
-      /*
-        A new gesture can be recognized by:
 
-        1. Previous wheel stream already ended.
+/*
+  One page already moved during
+  this physical gesture.
 
-        2. A noticeable gap between events.
+  Eat the rest of the momentum.
+*/
 
-        3. User suddenly reverses direction.
+if (
+  wheelGestureActive ||
+  isScrolling
+) {
+  return;
+}
 
-        4. A strong new same-direction swipe
-           appears after the page has finished.
-      */
 
-      const strongNewImpulse =
-        !isScrolling &&
-        magnitude > 24 &&
-        magnitude >
-          lastWheelMagnitude * 2.2;
+/*
+  First event of a new gesture.
+*/
 
+wheelGestureActive = true;
 
-      const reversedDirection =
-        !isScrolling &&
-        lastWheelDirection !== 0 &&
-        direction !== lastWheelDirection;
 
+if (direction > 0) {
 
-      const newGesture =
-        !wheelGestureActive ||
-        gap > 65 ||
-        strongNewImpulse ||
-        reversedDirection;
+  goToSection(
+    currentIndex + 1
+  );
 
+}
 
+else {
 
-      /*
-        Remember current wheel event.
-      */
+  goToSection(
+    currentIndex - 1
+  );
 
-      lastWheelTime = now;
-      lastWheelDirection = direction;
+}
 
-
-
-      /*
-        Every incoming wheel event keeps
-        the current physical gesture alive.
-
-        65ms here is NOT a page cooldown.
-        It only determines when trackpad
-        momentum has actually stopped.
-      */
-
-      clearTimeout(wheelEndTimer);
-
-
-      wheelEndTimer =
-        setTimeout(() => {
-
-          wheelGestureActive = false;
-
-          lastWheelMagnitude = 0;
-          lastWheelDirection = 0;
-
-        }, 65);
-
-
-
-      /*
-        Page still physically moving.
-
-        Consume leftover momentum,
-        but DO NOT change page.
-      */
-
-      if (isScrolling) {
-
-        lastWheelMagnitude =
-          magnitude;
-
-        return;
-
-      }
-
-
-
-      /*
-        Same old trackpad gesture.
-
-        Consume its remaining momentum.
-      */
-
-      if (!newGesture) {
-
-        lastWheelMagnitude =
-          magnitude;
-
-        return;
-
-      }
-
-
-
-      // ========================================
-      // REAL NEW GESTURE
-      // ========================================
-
-      wheelGestureActive = true;
-
-      lastWheelMagnitude =
-        magnitude;
-
-
-
-      if (direction > 0) {
-
-        goToSection(
-          currentIndex + 1
-        );
-
-      }
-
-      else {
-
-        goToSection(
-          currentIndex - 1
-        );
-
-      }
 
     },
 
@@ -7223,6 +7146,13 @@ if (horizontalGesture) {
   Boolean(
     event.target.closest(
       '.apt-viewport, .around-cards, .weather-forecast, .reviews-track'
+    )
+  );
+
+  touchStartedInInteractiveMap =
+  Boolean(
+    event.target.closest(
+      '#around-map'
     )
   );
 
@@ -7256,6 +7186,10 @@ if (horizontalGesture) {
         Page 03 apartment cards are allowed
         to use native horizontal scrolling.
       */
+
+        if (touchStartedInInteractiveMap) {
+  return;
+}
 
       if (
   touchStartedInHorizontalScroller &&
@@ -7307,6 +7241,9 @@ if (horizontalGesture) {
         touchStartY -
         touchEndY;
 
+         if (touchStartedInInteractiveMap) {
+  return;
+} 
 
       if (
   touchStartedInHorizontalScroller &&
@@ -7403,5 +7340,394 @@ if (horizontalGesture) {
     }
   );
 
+
+})();
+
+/* ========================================
+   AROUND — INTERACTIVE MAP
+======================================== */
+
+(() => {
+
+  const toggle =
+    document.getElementById(
+      'around-map-toggle'
+    );
+
+
+  const panel =
+    document.getElementById(
+      'around-map-panel'
+    );
+
+
+  const closeButton =
+    document.getElementById(
+      'around-map-close'
+    );
+
+
+  const mapElement =
+    document.getElementById(
+      'around-map'
+    );
+
+
+  if (
+    !toggle ||
+    !panel ||
+    !mapElement ||
+    typeof L === 'undefined'
+  ) {
+    return;
+  }
+
+
+  let map = null;
+
+
+  const places = [
+
+    {
+      name:
+        'Bamboo Beach / Tsikhisdziri',
+
+      label:
+        'Tsikhisdziri',
+
+      featured:
+        true,
+
+      coordinates:
+        [
+          41.76194,
+          41.75389
+        ]
+    },
+
+
+    {
+      name:
+        'Petra Fortress',
+
+      coordinates:
+        [
+          41.76833,
+          41.75333
+        ]
+    },
+
+
+    {
+      name:
+        'Batumi Botanical Garden',
+
+      coordinates:
+        [
+          41.69278,
+          41.70670
+        ]
+    },
+
+
+    {
+      name:
+        'Batumi',
+
+      coordinates:
+        [
+          41.65100,
+          41.63600
+        ]
+    }
+
+  ];
+
+
+  function createAroundMap() {
+
+    if (map) {
+
+      setTimeout(
+        () => {
+
+          map.invalidateSize();
+
+        },
+        50
+      );
+
+
+      return;
+
+    }
+
+
+    map =
+      L.map(
+        mapElement,
+        {
+          scrollWheelZoom:
+            false
+        }
+      );
+
+
+    L.tileLayer(
+      'https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',
+      {
+        attribution:
+          '&copy; OpenStreetMap contributors'
+      }
+    ).addTo(map);
+
+
+    const bounds = [];
+
+
+    places.forEach(
+      place => {
+
+        const latitude =
+          place.coordinates[0];
+
+
+        const longitude =
+          place.coordinates[1];
+
+
+        const directionsUrl =
+          `https://www.google.com/maps/dir/?api=1&destination=${latitude},${longitude}`;
+
+
+        const marker =
+          place.featured
+
+            ? L.marker(
+                place.coordinates,
+                {
+                  icon:
+                    L.divIcon({
+                      className:
+                        'bb-map-featured-icon',
+
+                      html: `
+                        <div class="bb-map-featured-marker">
+
+                          <span class="bb-map-featured-dot">
+                          </span>
+
+                          <span class="bb-map-featured-label">
+                            ${place.label}
+                          </span>
+
+                        </div>
+                      `,
+
+                      iconSize:
+                        [160, 36],
+
+                      iconAnchor:
+                        [14, 18]
+                    })
+                }
+              )
+
+            : L.marker(
+                place.coordinates
+              );
+
+
+        marker
+          .addTo(map)
+          .bindPopup(`
+            <div class="bb-map-popup">
+
+              <strong class="bb-map-popup-name">
+                ${place.name}
+              </strong>
+
+              <a
+                class="bb-map-directions"
+                href="${directionsUrl}"
+                target="_blank"
+                rel="noopener noreferrer">
+
+                Directions ↗
+
+              </a>
+
+            </div>
+          `);
+
+
+        bounds.push(
+          place.coordinates
+        );
+
+      }
+    );
+
+
+    map.fitBounds(
+      bounds,
+      {
+        padding:
+          [40, 40]
+      }
+    );
+
+  }
+
+
+  function openMap() {
+
+    panel.hidden =
+      false;
+
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'true'
+    );
+
+
+    createAroundMap();
+
+
+    setTimeout(
+      () => {
+
+        map?.invalidateSize();
+
+      },
+      80
+    );
+
+  }
+
+
+  function closeMap() {
+
+    panel.hidden =
+      true;
+
+
+    toggle.setAttribute(
+      'aria-expanded',
+      'false'
+    );
+
+  }
+
+
+  /*
+    Always start closed.
+  */
+
+  closeMap();
+
+
+  toggle.addEventListener(
+    'click',
+    openMap
+  );
+
+
+  closeButton?.addEventListener(
+    'click',
+    closeMap
+  );
+
+
+  /*
+    Click dark background to close.
+  */
+
+  panel.addEventListener(
+    'click',
+    event => {
+
+      if (
+        event.target === panel
+      ) {
+
+        closeMap();
+
+      }
+
+    }
+  );
+
+
+  /*
+    Keep map wheel/touch gestures
+    away from the Guest Tour underneath.
+  */
+
+  [
+    'wheel',
+    'touchstart',
+    'touchmove',
+    'touchend'
+  ].forEach(
+    eventName => {
+
+      panel.addEventListener(
+        eventName,
+        event => {
+
+          event.stopPropagation();
+
+        },
+        {
+          passive: true
+        }
+      );
+
+    }
+  );
+
+
+  /*
+    ESC closes map.
+  */
+
+  document.addEventListener(
+    'keydown',
+    event => {
+
+      if (
+        event.key === 'Escape' &&
+        !panel.hidden
+      ) {
+
+        closeMap();
+
+      }
+
+    }
+  );
+
+
+  /*
+    Home button closes map.
+  */
+
+  window.addEventListener(
+    'bb-home-reset',
+    closeMap
+  );
+
+
+  /*
+    Force map closed after
+    refresh / browser back restore.
+  */
+
+  window.addEventListener(
+    'pageshow',
+    closeMap
+  );
 
 })();

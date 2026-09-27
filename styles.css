@@ -1452,6 +1452,8 @@ footer {
     clamp(35px, 6vw, 90px);
 
   align-items: center;
+
+  
 }
 
 
@@ -1624,6 +1626,179 @@ footer {
   opacity: 0.62;
 }
 
+
+/* ========================================
+   AROUND — MAP
+======================================== */
+
+.around-map-toggle {
+width: max-content;
+
+margin-top: 24px;
+
+  min-height: 44px;
+
+  padding:
+    0 18px;
+
+  display: flex;
+  align-items: center;
+
+  gap: 9px;
+
+  border:
+    1px solid
+    rgba(23,60,68,0.16);
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.72);
+
+  color: #173c44;
+
+  font-size: 11px;
+  font-weight: 600;
+
+  letter-spacing: 0.6px;
+
+  cursor: pointer;
+
+  transition:
+    background 0.18s ease,
+    color 0.18s ease,
+    border-color 0.18s ease;
+}
+
+
+.around-map-toggle:hover {
+  background: #0e968b;
+
+  border-color: #0e968b;
+
+  color: #ffffff;
+}
+
+
+/* Full overlay */
+
+.around-map-panel {
+  position: fixed;
+
+  inset: 0;
+
+  z-index: 9400;
+
+  padding:
+    clamp(12px, 3vw, 36px);
+
+  display: grid;
+
+  place-items: center;
+
+  background:
+    rgba(17, 37, 40, 0.46);
+
+  backdrop-filter:
+    blur(10px);
+
+  -webkit-backdrop-filter:
+    blur(10px);
+}
+
+
+.around-map-panel[hidden] {
+  display: none;
+}
+
+
+/* Map card */
+
+.around-map-frame {
+  width:
+    min(
+      1200px,
+      100%
+    );
+
+  height:
+    min(
+      78vh,
+      760px
+    );
+
+  min-height: 300px;
+
+  overflow: hidden;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.4);
+
+  border-radius: 28px;
+
+  background: #e8ece7;
+
+  box-shadow:
+    0 30px 80px
+    rgba(0,0,0,0.25);
+}
+
+
+#around-map {
+  width: 100%;
+  height: 100%;
+}
+
+
+/* Close */
+
+.around-map-close {
+  position: absolute;
+
+  top:
+    max(
+      20px,
+      env(safe-area-inset-top)
+    );
+
+  right: 22px;
+
+  z-index: 9500;
+
+  width: 46px;
+  height: 46px;
+
+  border:
+    1px solid
+    rgba(255,255,255,0.5);
+
+  border-radius: 50%;
+
+  background:
+    rgba(255,255,255,0.92);
+
+  color: #173c44;
+
+  font-size: 29px;
+
+  line-height: 1;
+
+  cursor: pointer;
+
+  box-shadow:
+    0 8px 25px
+    rgba(0,0,0,0.15);
+}
+
+
+.around-map-close:hover {
+  background: #0e968b;
+
+  color: white;
+}
+
+
 /* ========================================
    AROUND — MOBILE
 ======================================== */
@@ -1758,9 +1933,8 @@ footer {
     font-size: 23px;
   }
 
+
 }
-
-
 /* ========================================
    WEATHER
 ======================================== */
@@ -3394,6 +3568,160 @@ and
 .tour-section {
   scroll-snap-align: start;
   scroll-snap-stop: always;
+}
+
+.around-map-panel {
+  padding: 10px;
+}
+
+
+.around-map-frame {
+  width: 100%;
+
+  height:
+    calc(
+      100dvh - 20px
+    );
+
+  border-radius: 20px;
+}
+
+
+.around-map-close {
+  position: fixed;
+
+  top:
+    max(
+      14px,
+      env(safe-area-inset-top)
+    );
+
+  right: 14px;
+
+  z-index: 99999;
+
+  width: 44px;
+  height: 44px;
+
+  background: #ffffff;
+
+  color: #173c44;
+
+  border:
+    1px solid
+    rgba(23,60,68,0.18);
+
+  box-shadow:
+    0 6px 22px
+    rgba(0,0,0,0.18);
+}
+
+
+.bb-map-featured-icon {
+  background: transparent;
+
+  border: 0;
+}
+
+
+.bb-map-featured-marker {
+  display: flex;
+
+  align-items: center;
+
+  gap: 8px;
+
+  white-space: nowrap;
+}
+
+
+.bb-map-featured-dot {
+  flex: 0 0 auto;
+
+  width: 18px;
+  height: 18px;
+
+  border: 4px solid #ffffff;
+
+  border-radius: 50%;
+
+  background: #0e968b;
+
+  box-shadow:
+    0 3px 12px
+    rgba(0,0,0,0.28);
+}
+
+
+.bb-map-featured-label {
+  padding:
+    7px 11px;
+
+  border-radius: 999px;
+
+  background:
+    rgba(255,255,255,0.94);
+
+  color: #173c44;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  letter-spacing: 0.4px;
+
+  box-shadow:
+    0 4px 16px
+    rgba(0,0,0,0.16);
+}
+
+.bb-map-popup {
+  min-width: 145px;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 10px;
+
+  padding: 2px;
+}
+
+
+.bb-map-popup-name {
+  color: #173c44;
+
+  font-size: 13px;
+
+  line-height: 1.35;
+}
+
+
+.bb-map-directions {
+  width: max-content;
+
+  padding:
+    7px 11px;
+
+  border-radius: 999px;
+
+  background: #0e968b;
+
+  color: #ffffff;
+
+  font-size: 11px;
+
+  font-weight: 700;
+
+  text-decoration: none;
+
+  letter-spacing: 0.3px;
+}
+
+
+.bb-map-directions:hover {
+  background: #087d74;
+
+  color: #ffffff;
 }
 
 
